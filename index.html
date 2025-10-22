@@ -1,92 +1,11 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Resilient Core & Back – TA-first, Evidence‑based Progression</title>
-<meta name="description" content="A citably-sourced, phase-by-phase program that starts with diaphragmatic breathing and transversus abdominis (TA) activation and builds to high-load, work-capable resilience. Includes safety gates, red flags, calculators, and donation/participation entry points." />
-<style>
-  :root{
-    --bg:#0f1220; --ink:#f4f7ff; --muted:#cbd3ff; --accent:#84ffb5; --accent2:#8cd0ff;
-    --warn:#ffd166; --danger:#ff6b6b; --ok:#3ddc97; --card:#151935; --line:#252a52;
-    --low:#999; --med:#ffd166; --hi:#84ffb5;
-  }
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    margin:0; font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial;
-    color:var(--ink); background:radial-gradient(1200px 800px at 85% -10%, #1b2050 0%, #0f1220 50%, #0b0e1b 100%) fixed;
-  }
-  a{color:var(--accent2); text-decoration:none}
-  a:hover{text-decoration:underline}
-  .wrap{max-width:1100px;margin-inline:auto;padding:24px}
-  header{position:sticky;top:0;background:rgba(15,18,32,.8);backdrop-filter:saturate(1.2) blur(8px);border-bottom:1px solid var(--line);z-index:10}
-  header .wrap{display:flex;align-items:center;gap:24px}
-  .brand{display:flex;align-items:center;gap:12px}
-  .brand svg{width:28px;height:28px}
-  nav{margin-left:auto}
-  nav a{padding:10px 12px;display:inline-block;border-radius:8px}
-  nav a:focus, nav a:hover{background:#1a1f45}
-  .hero{padding:40px 0 10px}
-  .grid{display:grid;gap:18px}
-  .cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
-  @media (max-width:900px){ .cols-2,.cols-3{grid-template-columns:1fr} }
-  .card{
-    background:linear-gradient(180deg,#171b3a 0%,#131735 100%);
-    border:1px solid var(--line); border-radius:16px; padding:18px;
-    box-shadow:0 10px 30px rgba(0,0,0,.25);
-  }
-  h1,h2,h3{line-height:1.2;margin:0 0 10px}
-  h1{font-size:clamp(28px,4vw,40px)}
-  h2{font-size:clamp(22px,3vw,28px);margin-top:24px}
-  h3{font-size:20px;margin-top:18px}
-  p{margin:0 0 10px;color:#dfe7ff}
-  .muted{color:var(--muted)}
-  .badge{display:inline-flex;align-items:center;gap:6px;padding:4px 8px;border-radius:999px;font-size:12px;border:1px solid #2a2f5a}
-  .b-hi{background:rgba(132,255,181,.12);color:var(--hi);border-color:rgba(132,255,181,.35)}
-  .b-med{background:rgba(255,209,102,.12);color:var(--med);border-color:rgba(255,209,102,.35)}
-  .b-low{background:rgba(153,153,153,.12);color:var(--low);border-color:rgba(153,153,153,.35)}
-  .phase{border-left:4px solid var(--accent2);padding-left:14px}
-  .list{margin:0;padding-left:18px}
-  .chip{display:inline-block;border:1px solid var(--line);padding:2px 8px;border-radius:999px;font-size:12px;margin-right:6px}
-  .btn{
-    appearance:none;border:1px solid var(--line);background:#1a1f45;color:var(--ink);
-    padding:10px 14px;border-radius:10px;cursor:pointer;font-weight:600;
-  }
-  .btn:hover{filter:brightness(1.1)}
-  .btn.primary{background:linear-gradient(90deg,#3bb2ff 0%, #30ffa6 100%); color:#07101e; border-color:transparent}
-  .btn.ghost{background:transparent}
-  .cta-row{display:flex; flex-wrap:wrap; gap:10px; margin-top:10px}
-  .disclaimer{border-left:4px solid var(--warn); background:#2b2340; padding:12px;border-radius:10px;border:1px solid var(--line)}
-  details{border:1px dashed #2a2f5a;padding:10px;border-radius:12px}
-  details>summary{cursor:pointer;font-weight:600}
-  hr{border:0;border-top:1px solid var(--line);margin:18px 0}
-  .kpis{display:flex;gap:10px;flex-wrap:wrap}
-  .kpi{flex:1 1 240px;background:#101437;border:1px solid var(--line);border-radius:12px;padding:12px}
-  label{display:block;font-weight:600;margin:.4rem 0 .2rem}
-  input[type=number], input[type=text], input[type=email], select{
-    width:100%;padding:10px;border-radius:8px;border:1px solid #2a2f5a;background:#0e1330;color:var(--ink)
-  }
-  input[type=range]{width:100%}
-  .ok{color:var(--ok)} .warn{color:var(--warn)} .danger{color:var(--danger)}
-  .footnotes{font-size:.95rem}
-  .footnotes li{margin-bottom:6px}
-  .ref{font-variant-numeric:tabular-nums}
-  .sticky-tools{position:sticky; top:72px}
-  .small{font-size:.9rem}
-  .tag{font-size:11px;opacity:.9}
-  .mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace}
-  .progress{height:10px;background:#0d1330;border-radius:999px;border:1px solid var(--line);overflow:hidden}
-  .progress>i{display:block;height:100%;background:linear-gradient(90deg,#3bb2ff,#30ffa6)}
-  .grid-cards{display:grid;gap:14px;grid-template-columns:repeat(2,minmax(0,1fr))}
-  @media (max-width:900px){ .grid-cards{grid-template-columns:1fr} }
-  .dangerbox{border:1px solid rgba(255,107,107,.5);background:rgba(255,107,107,.08);border-radius:12px;padding:12px}
-  .legend{display:flex;gap:8px;flex-wrap:wrap}
-  .legend .badge{font-weight:700}
-  footer{padding:30px 0 60px;color:#aeb7ff}
-  .sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
-</style>
+<title>Resilient Core & Back — ARCANet</title>
+<link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
 <a href="#main" class="sr-only">Skip to content</a>
@@ -99,467 +18,56 @@
         <path d="M20 36c8 8 16 8 24-8" fill="none" stroke="url(#g)" stroke-width="4" stroke-linecap="round"/>
       </svg>
       <strong>Resilient Core & Back</strong>
-      <span class="tag">ARCANet draft • single‑file</span>
+      <span class="tag">ARCANet draft</span>
     </div>
     <nav aria-label="Main navigation">
-      <a href="#overview">Overview</a>
-      <a href="#safety">Safety</a>
-      <a href="#phases">Program</a>
-      <a href="#tools">Tools</a>
-      <a href="#cta">Participate</a>
-      <a href="#refs">References</a>
+      <a href="phases/core-awareness.html">First Stage: Core Awareness</a>
+      <a href="tools.html">Tools</a>
+      <a href="phases/core-awareness.html#refs">References</a>
     </nav>
   </div>
 </header>
 
 <main id="main" class="wrap">
-  <section id="overview" class="hero grid cols-2">
+  <section class="hero grid cols-2">
     <div>
-      <h1>Transversus‑first progression to a strong, pain‑smart back</h1>
-      <p class="muted">Start with diaphragmatic breathing and TA activation. Progress through validated anti‑extension / anti‑rotation drills, then integrate hip‑hinge and loaded carries. Built‑in safety gates and calculators show when to advance—never guess.</p>
-      <div class="cta-row">
-        <a class="btn primary" href="#phases">Start the program</a>
-        <button class="btn ghost" onclick="window.print()">Download program (PDF)</button>
-      </div>
-      <div class="legend" style="margin-top:10px">
-        <span class="badge b-hi" title="Mirrors official instructions from recognized medical or exercise‑medicine bodies.">High confidence</span>
-        <span class="badge b-med" title="Aligned with guidelines & common PT practice; not verbatim from one source.">Medium</span>
-        <span class="badge b-low" title="Pragmatic estimate for progression/load; for self‑screening only.">Low</span>
-      </div>
-    </div>
-    <div class="sticky-tools">
-      <div class="card">
-        <h3>Quick start</h3>
-        <ol class="list">
-          <li>Read <a href="#safety">Safety & red flags</a>.</li>
-          <li>Begin at <a href="#phase0">Phase 0</a> and use the <a href="#tools">tools</a> to unlock each phase.</li>
-          <li>When a <em>gate</em> shows ✅, move on; otherwise repeat/adjust.</li>
-        </ol>
-        <div class="disclaimer small" style="margin-top:10px">
-          This page is educational—not medical advice. If you have significant pain, new symptoms, or uncertainty, consult a licensed clinician first.
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="safety">
-    <h2>Safety first: red flags, pain “traffic light,” and load context</h2>
-    <div class="grid-cards">
-      <div class="card dangerbox">
-        <h3>🚩 Red flags → seek emergency care now</h3>
-        <ul class="list">
-          <li>New bowel/bladder changes (retention, incontinence), or <strong>saddle numbness</strong>.</li>
-          <li>Rapidly worsening leg weakness, bilateral sciatica, or numbness around the buttocks/genitals.</li>
-        </ul>
-        <p class="small">These may indicate <strong>cauda equina syndrome</strong>—a surgical emergency. See references [7–8].</p>
-      </div>
-      <div class="card">
-        <h3>🟢🟠🔴 Pain “traffic light”</h3>
-        <p class="muted">Use symptoms to dose activity. If pain worsens, modify or stop.</p>
-        <ul class="list">
-          <li>🟢 0–3/10: usually acceptable—continue.</li>
-          <li>🟠 4–5/10: acceptable with caution—reduce volume/complexity.</li>
-          <li>🔴 6–10/10: excessive—stop and regress.</li>
-        </ul>
-        <p class="small">NHS guidance on acceptable pain levels during back‑pain rehab; stop if pain worsens. See [9–10].</p>
-        <details style="margin-top:6px">
-          <summary>“2‑hour rule”</summary>
-          <p class="small">If pain persists &gt; <strong>2 hours</strong> after exercise, reduce reps/sets next time. See the NHS leaflet in [11].</p>
-        </details>
-      </div>
-      <div class="card">
-        <h3>📦 Lifting risk context (work/day‑to‑day)</h3>
-        <p class="muted">Under <em>ideal</em> conditions, NIOSH’s recommended limit constant (RWL base) is <strong>23 kg / ~51 lb</strong>. Real tasks often include multipliers that reduce safe capacity (reach, asymmetry, frequency, etc.). This is <em>not</em> a training target; use it to contextualize loads in later phases. See [12].</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="phases">
-    <h2>Program (5 phases) — from activation to high‑load capacity</h2>
-
-    <!-- Phase 0 -->
-    <article id="phase0" class="card phase">
-      <h3>Phase 0 — Breath & TA activation</h3>
-      <p><span class="chip">Goal: Find the diaphragm. Selectively recruit TA without breath‑holding or pelvic tilt.</span></p>
-      <div class="grid-cards">
-        <div class="card">
-          <h4>Diaphragmatic breathing <span class="badge b-hi">High</span></h4>
-          <ul class="list">
-            <li><strong>How</strong>: One hand on chest, one below ribs; inhale through nose so belly rises; exhale through pursed lips letting abdomen fall. 5–10 minutes, 1–2x/day. <span class="small">[1–2]</span></li>
-            <li><strong>Why</strong>: Calms the system and coordinates the diaphragm with core stabilizers.</li>
-            <li><strong>Stop/regress</strong>: Dizziness, breath‑holding patterns—shorten sets.</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h4>Abdominal Drawing‑In Maneuver (ADIM) <span class="badge b-med">Medium</span></h4>
-          <ul class="list">
-            <li><strong>How</strong>: Supine 90/90 hips/knees; draw navel gently “up and in” (fingers just inside ASIS feel TA tension) while breathing normally; 5–10s holds × 10 reps. <span class="small">[3–6]</span></li>
-            <li><strong>Why</strong>: Preferentially recruits TA; imaging studies validate training/assessment methods. <span class="small">[3–6]</span></li>
-            <li><strong>Stop/regress</strong>: If you bear down, hold your breath, or tilt pelvis—reset and reduce hold time.</li>
-          </ul>
-        </div>
-      </div>
-      <details>
-        <summary>Phase 0 gate</summary>
-        <ul class="list">
-          <li>Breath: 5 mins comfortable diaphragmatic breathing without neck/shoulder tension. <span class="badge b-low">Low</span></li>
-          <li>ADIM: 10×10s holds with normal breathing; palpable TA tension; no pelvic tilt. <span class="badge b-low">Low</span></li>
-          <li>Pain: ≤5/10 and returns to baseline within 2 hours. <span class="badge b-med">Medium</span></li>
-        </ul>
-      </details>
-    </article>
-
-    <!-- Phase 1 -->
-    <article id="phase1" class="card phase">
-      <h3>Phase 1 — Supine control & anti‑extension</h3>
-      <p><span class="chip">Goal: Control pelvic tilt and trunk while moving arms/legs.</span></p>
-      <div class="grid-cards">
-        <div class="card">
-          <h4>Posterior pelvic tilt (PPT) <span class="badge b-hi">High</span></h4>
-          <ul class="list">
-            <li><strong>How</strong>: Supine, knees bent; gently flatten/lift lumbar spine (Mayo “lower back flexibility” guidance). 5–10 reps → 2–3 sets. <span class="small">[13]</span></li>
-            <li><strong>Why</strong>: Teaches lumbopelvic control used in all later drills.</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h4>Supine march (TA set) <span class="badge b-hi">High</span></h4>
-          <ul class="list">
-            <li><strong>How</strong>: TA brace + lift one foot to ~90°, alternate slowly for 45–60s. <span class="small">[14]</span></li>
-            <li><strong>Why</strong>: Early dynamic control under light load.</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h4>Bridge <span class="badge b-hi">High</span></h4>
-          <p class="small">Glute‑dominant support for the posterior chain; 8–12 reps × 2–3 sets. <span class="small">[13]</span></p>
-        </div>
-        <div class="card">
-          <h4>Dead bug (progressions) <span class="badge b-hi">High</span></h4>
-          <ul class="list">
-            <li><strong>How</strong>: Arms up, knees over hips; alternate opposite arm/leg without lumbar arching. 5–12 reps/side × 2–3 sets. <span class="small">[15–16]</span></li>
-            <li><strong>Stop/regress</strong>: If back lifts, shorten lever or do heel taps.</li>
-          </ul>
-        </div>
-      </div>
-      <details>
-        <summary>Phase 1 gate</summary>
-        <ul class="list">
-          <li>PPT: 2×10 with controlled breath, no pain &gt;5/10. <span class="badge b-low">Low</span></li>
-          <li>March: 60s steady without pelvic tilt. <span class="badge b-low">Low</span></li>
-          <li>Dead bug: 2×10/side with lumbar neutral. <span class="badge b-low">Low</span></li>
-          <li>Post‑session pain settles ≤2 hrs. <span class="badge b-med">Medium</span></li>
-        </ul>
-      </details>
-    </article>
-
-    <!-- Phase 2 -->
-    <article id="phase2" class="card phase">
-      <h3>Phase 2 — Anti‑extension & anti‑rotation endurance</h3>
-      <p><span class="chip">Goal: Build isometric endurance & stiffness for daily tasks.</span></p>
-      <div class="grid-cards">
-        <div class="card">
-          <h4>Front plank (forearms or high) <span class="badge b-hi">High</span></h4>
-          <p class="small">Elbows under shoulders; glutes on; slight posterior pelvic tilt; build multiple short holds. <span class="small">[17]</span></p>
-        </div>
-        <div class="card">
-          <h4>Side plank (modified → full) <span class="badge b-hi">High</span></h4>
-          <p class="small">From knees → feet; maintain straight line shoulder→heel. <span class="small">[18]</span></p>
-        </div>
-        <div class="card">
-          <h4>Bird‑dog <span class="badge b-hi">High</span></h4>
-          <p class="small">Opposite arm/leg reach with minimal trunk shift; hold 3–5s. <span class="small">[18]</span></p>
-        </div>
-        <div class="card">
-          <h4>Pallof press (anti‑rotation) <span class="badge b-hi">High</span></h4>
-          <p class="small">Cable/band at chest height; press out resisting rotation. 3×10–15 or 20–30s isos. <span class="small">[19]</span></p>
-        </div>
-      </div>
-      <details>
-        <summary>Phase 2 gate (objective)</summary>
-        <p class="muted">Use the McGill calculator in <a href="#tools">Tools</a>. Targets below reflect ACE protocol sheets.</p>
-        <ul class="list">
-          <li><strong>Ratios</strong>: Flexion:Extension &lt; 1.0; Side‑bridge:Extension &lt; 0.75; Right:Left within ±0.05. <span class="badge b-hi">High</span> <span class="small">[20–22]</span></li>
-          <li><strong>Consistency</strong>: Can perform planks/side planks in sets of 10–30s with crisp form (multiple sets preferred over long single holds). <span class="badge b-med">Medium</span></li>
-        </ul>
-      </details>
-    </article>
-
-    <!-- Phase 3 -->
-    <article id="phase3" class="card phase">
-      <h3>Phase 3 — Integrated strength & loaded carries</h3>
-      <p><span class="chip">Goal: Hinge, row, and carry with a braced, neutral spine.</span></p>
-      <div class="grid-cards">
-        <div class="card">
-          <h4>Hip hinge patterning <span class="badge b-hi">High</span></h4>
-          <p class="small">Dowel 3‑point contact; push hips back; maintain neutral spine. <span class="small">[23]</span></p>
-        </div>
-        <div class="card">
-          <h4>Bent‑over row (dumbbell) <span class="badge b-hi">High</span></h4>
-          <p class="small">Row with spine neutral; scapular control; 8–12 reps × 2–4 sets. <span class="small">[24]</span></p>
-        </div>
-        <div class="card">
-          <h4>Farmer’s carry (bilateral) <span class="badge b-hi">High</span></h4>
-          <p class="small">Tall posture, slow walk, no sway. 20–40 m bouts. <span class="small">[25]</span></p>
-        </div>
-        <div class="card">
-          <h4>Suitcase carry (unilateral) <span class="badge b-hi">High</span></h4>
-          <p class="small">Anti‑lateral‑flexion challenge; switch sides. <span class="small">[26]</span></p>
-        </div>
-      </div>
-      <details>
-        <summary>Phase 3 gate</summary>
-        <ul class="list">
-          <li>Hinge & row: 2–3 sets with neutral spine maintained under moderate load. <span class="badge b-med">Medium</span></li>
-          <li>Carry test: 2×20–30 m farmer’s carries with posture intact at a load you can set down under control. <em>If using ACE guidance, a long‑term goal is “total load ≈ bodyweight” (split across both hands) — advanced only.</em> <span class="badge b-med">Medium</span> <span class="small">[27]</span></li>
-          <li>Pain: ≤5/10, resolves ≤2 hrs. <span class="badge b-med">Medium</span></li>
-        </ul>
-      </details>
-    </article>
-
-    <!-- Phase 4 -->
-    <article id="phase4" class="card phase">
-      <h3>Phase 4 — Higher load & dynamic core</h3>
-      <p><span class="chip">Goal: Work‑ready capacity with spine‑sparing mechanics.</span></p>
-      <div class="grid-cards">
-        <div class="card">
-          <h4>Kettlebell deadlift (floor) <span class="badge b-hi">High</span></h4>
-          <p class="small">Foot stance hip–shoulder width; hinge; grip; drive through floor; neutral neck. <span class="small">[28]</span></p>
-        </div>
-        <div class="card">
-          <h4>Stability‑ball rollout (knees) <span class="badge b-med">Medium</span></h4>
-          <p class="small">Forearms on ball, roll out without lumbar sag. 3×6–10. <span class="small">[29]</span></p>
-        </div>
-        <div class="card">
-          <h4>Hanging/knee‑raise (or Captain’s Chair) <span class="badge b-med">Medium</span></h4>
-          <p class="small">Progress from chair → hanging; avoid lumbar arch/hip‑flexor dominance. <span class="small">[30]</span></p>
-        </div>
-      </div>
-      <details>
-        <summary>Phase 4 gate & work simulation</summary>
-        <ul class="list">
-          <li>Deadlift: 3×5 with perfect hinge and no pain escalation (choose load you can pause at mid‑shin with control). <span class="badge b-med">Medium</span></li>
-          <li>Carry & row volumes match your job demands using posture‑first rules. For context on <em>safe lifting</em>, remember the NIOSH 23 kg (51 lb) ideal‑condition constant—real‑world limits are often lower due to reach, twist, frequency. <span class="badge b-hi">High</span> <span class="small">[12]</span></li>
-        </ul>
-      </details>
-    </article>
-  </section>
-
-  <section id="tools">
-    <h2>Tools: gates, calculators, and progress</h2>
-
-    <div class="grid cols-2">
-      <div class="card">
-        <h3>McGill endurance ratio calculator <span class="badge b-hi">High</span> <span class="small">(targets per ACE sheets)</span></h3>
-        <div class="grid cols-2">
-          <div>
-            <label for="tFlex">Flexion hold (sec)</label>
-            <input id="tFlex" type="number" min="0" step="1" value="0" />
-          </div>
-          <div>
-            <label for="tExt">Extension hold (sec)</label>
-            <input id="tExt" type="number" min="0" step="1" value="0" />
-          </div>
-          <div>
-            <label for="tSideR">Right side‑bridge (sec)</label>
-            <input id="tSideR" type="number" min="0" step="1" value="0" />
-          </div>
-          <div>
-            <label for="tSideL">Left side‑bridge (sec)</label>
-            <input id="tSideL" type="number" min="0" step="1" value="0" />
-          </div>
-        </div>
-        <div class="kpis" style="margin-top:10px">
-          <div class="kpi"><div class="muted small">Flexion:Extension</div><div id="ratioFE" class="mono">—</div><div class="small">Pass if &lt; 1.00</div></div>
-          <div class="kpi"><div class="muted small">Side R:Extension</div><div id="ratioRE" class="mono">—</div><div class="small">Pass if &lt; 0.75</div></div>
-          <div class="kpi"><div class="muted small">Side L:Extension</div><div id="ratioLE" class="mono">—</div><div class="small">Pass if &lt; 0.75</div></div>
-          <div class="kpi"><div class="muted small">R:L balance</div><div id="ratioRL" class="mono">—</div><div class="small">Within ±0.05</div></div>
-        </div>
-        <div style="margin-top:10px" class="progress"><i id="mcgillBar" style="width:0%"></i></div>
-        <p id="mcgillMsg" class="small muted" style="margin-top:8px">Enter times to see pass/fail.</p>
-      </div>
-
-      <div class="card">
-        <h3>Pain & load self‑check</h3>
-        <label for="painNow">Pain right now (0–10)</label>
-        <input id="painNow" type="range" min="0" max="10" step="1" value="2" oninput="painOut.textContent=value" />
-        <div>Value: <strong id="painOut">2</strong>/10</div>
-
-        <label for="persist2h" style="margin-top:8px">Did pain stay ≥3 points above baseline for &gt;2 hours after last session?</label>
-        <select id="persist2h">
-          <option value="no" selected>No</option>
-          <option value="yes">Yes</option>
-        </select>
-
-        <label for="bw" style="margin-top:8px">Body weight (lb)</label>
-        <input id="bw" type="number" min="0" step="1" value="180" />
-
-        <label for="perHand">Carry load per hand (lb)</label>
-        <input id="perHand" type="number" min="0" step="1" value="45" />
-
-        <div class="kpis" style="margin-top:10px">
-          <div class="kpi">
-            <div class="muted small">Total carry load ÷ BW</div>
-            <div id="carryRatio" class="mono">—</div>
-            <div class="small">FYI: “bodyweight split across hands” is an ACE advanced goal—<em>not required to progress</em>.</div>
-          </div>
-          <div class="kpi">
-            <div class="muted small">Recommendation</div>
-            <div id="suggestion" class="small">—</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" style="margin-top:14px">
-      <h3>Phase tracker</h3>
-      <p class="muted small">Save your progress locally (browser only).</p>
+      <h1>Transversus-first progression to a strong, pain-smart back</h1>
+      <p class="muted">Start with diaphragmatic breathing and TA activation. Advance through anti-extension/anti-rotation work, then hinge + carries. Each phase has <em>clear gates</em> and safety rules.</p>
       <div class="kpis">
-        <div class="kpi"><div class="muted small">Phase 0</div><div><input type="checkbox" id="p0" /> Completed</div></div>
-        <div class="kpi"><div class="muted small">Phase 1</div><div><input type="checkbox" id="p1" /> Completed</div></div>
-        <div class="kpi"><div class="muted small">Phase 2</div><div><input type="checkbox" id="p2" /> Completed</div></div>
-        <div class="kpi"><div class="muted small">Phase 3</div><div><input type="checkbox" id="p3" /> Completed</div></div>
-        <div class="kpi"><div class="muted small">Phase 4</div><div><input type="checkbox" id="p4" /> Completed</div></div>
+        <div class="kpi"><div class="muted small">Start here</div><a class="btn primary" href="phases/core-awareness.html">Phase 0 — Core Awareness</a></div>
+        <div class="kpi"><div class="muted small">Track progress</div><a class="btn" href="tools.html">Calculators & Tracker</a></div>
       </div>
-      <div style="margin-top:8px" class="progress"><i id="phaseBar" style="width:0%"></i></div>
+      <div class="disclaimer small" style="margin-top:10px">
+        Educational content only; not medical advice. Stop/regress if symptoms escalate; seek care for red flags.
+      </div>
+    </div>
+    <div class="card">
+      <h3>What’s inside</h3>
+      <ul class="list">
+        <li>Phase 0 hub → links to exercise pages (Breathing, ADIM).</li>
+        <li>Each exercise page: how-to, dosage, completion gate, maintenance, safety, and source links.</li>
+        <li>Tools: McGill ratios, pain/load self-check, local progress tracker.</li>
+      </ul>
     </div>
   </section>
 
-  <section id="cta" class="grid cols-2" style="margin-top:16px">
+  <section class="grid cols-2">
     <div class="card">
       <h3>Participate / collaborate</h3>
-      <p>Want to help refine ARCANet’s back‑resilience track, contribute case data, or co‑author guidance?</p>
-      <div class="cta-row">
-        <!-- Replace email below -->
-        <a class="btn primary" href="mailto:YOUR_EMAIL_HERE?subject=ARCANet%20Back%20Program%20Participation&body=Tell%20us%20about%20your%20background%20and%20what%20you%E2%80%99d%20like%20to%20contribute.">Email to participate</a>
-        <a class="btn" href="#refs">Review sources</a>
-      </div>
-      <p class="small muted" style="margin-top:8px">No server needed; this button opens an email in the user’s client. You can later swap in a form service (e.g., Formspree) if desired.</p>
+      <p>Help refine ARCANet’s back-resilience track or contribute case data.</p>
+      <a class="btn primary" href="mailto:mreudelhuber@gmail.com?subject=ARCANet%20Back%20Program%20Participation">Email to participate</a>
     </div>
     <div class="card">
       <h3>Donate</h3>
-      <p>Your donation helps keep the program free and open.</p>
-      <div class="cta-row">
-        <!-- Replace URL below -->
-        <a class="btn primary" href="DONATION_URL_HERE" target="_blank" rel="noopener">Donate</a>
-        <a class="btn ghost" href="mailto:YOUR_EMAIL_HERE?subject=Donation%20question">Questions</a>
-      </div>
-      <p class="small muted">Alternative with no account: keep this mailto link so users can pledge; you send an invoice later.</p>
+      <p>Keep the program free and open.</p>
+      <a class="btn primary" href="#" onclick="alert('Add your donation link in index.html');return false;">Add donation link</a>
     </div>
   </section>
-
-  <section id="refs" class="card" style="margin-top:16px">
-    <h2>References (live links)</h2>
-    <ol class="footnotes">
-      <li class="ref">[1] Cleveland Clinic. <a href="https://my.clevelandclinic.org/-/scassets/files/org/canada/ehp/stress-diaphragmatic-breathing" target="_blank" rel="noopener">Diaphragmatic Breathing (PDF)</a>.</li>
-      <li class="ref">[2] Cleveland Clinic Abu Dhabi. <a href="https://www.clevelandclinicabudhabi.ae/en/health-hub/health-resource/treatments-and-procedures/pursed-lip-breathing-and-diaphragmatic-breathing" target="_blank" rel="noopener">Pursed‑lip & diaphragmatic breathing</a>.</li>
-      <li class="ref">[3] JOSPT. Teyhen et&nbsp;al., 2005. <a href="https://www.jospt.org/doi/10.2519/jospt.2005.35.6.346" target="_blank" rel="noopener">Ultrasound imaging for ADIM (LBP RCT)</a>.</li>
-      <li class="ref">[4] JOSPT. Oh et&nbsp;al., 2007. <a href="https://www.jospt.org/doi/10.2519/jospt.2007.2435" target="_blank" rel="noopener">ADIM during hip extension alters muscle activity</a>.</li>
-      <li class="ref">[5] BMC Sports Sci Rehabil 2024. <a href="https://bmcsportsscimedrehabil.biomedcentral.com/articles/10.1186/s13102-024-01009-x" target="_blank" rel="noopener">TrA training posture (90/90)</a>.</li>
-      <li class="ref">[6] JOSPT. Allison et&nbsp;al., 2008. <a href="https://www.jospt.org/doi/10.2519/jospt.2008.2703" target="_blank" rel="noopener">TrA feed‑forward specifics</a>.</li>
-      <li class="ref">[7] Cleveland Clinic. <a href="https://my.clevelandclinic.org/health/diseases/22132-cauda-equina-syndrome" target="_blank" rel="noopener">Cauda Equina Syndrome</a>.</li>
-      <li class="ref">[8] NHS. <a href="https://www.nhs.uk/tests-and-treatments/lumbar-decompression-surgery/why-its-done/" target="_blank" rel="noopener">Cauda equina requires emergency admission</a>.</li>
-      <li class="ref">[9] NHS. <a href="https://www.nhs.uk/conditions/back-pain/" target="_blank" rel="noopener">Back pain (self‑care + stop if pain worsens)</a>.</li>
-      <li class="ref">[10] NHS Inform. <a href="https://www.nhsinform.scot/illnesses-and-conditions/muscle-bone-and-joints/neck-and-back-problems-and-conditions/exercises-for-back-pain/" target="_blank" rel="noopener">Acceptable pain scale and dosing</a>.</li>
-      <li class="ref">[11] Wrightington, Wigan & Leigh NHS. <a href="https://www.wwl.nhs.uk/leaflets/download/wwl-6214d8140e93b8.11454616" target="_blank" rel="noopener">Low Back Pain Exercises (2‑hour rule)</a>.</li>
-      <li class="ref">[12] CCOHS (NIOSH equation overview). <a href="https://www.ccohs.ca/oshanswers/ergonomics/niosh/assessing.html" target="_blank" rel="noopener">NIOSH 23 kg / 51 lb constant</a>.</li>
-      <li class="ref">[13] Mayo Clinic. <a href="https://www.mayoclinic.org/healthy-lifestyle/adult-health/in-depth/back-pain/art-20546859" target="_blank" rel="noopener">Back exercises in 15 minutes (PPT, bridge)</a>.</li>
-      <li class="ref">[14] Mayfield Clinic. <a href="https://mayfieldclinic.com/pe-exercore.htm" target="_blank" rel="noopener">Core March → Dead Bug progression</a>.</li>
-      <li class="ref">[15] Royal Berkshire NHS. <a href="https://www.royalberkshire.nhs.uk/media/grynpqee/strength-and-conditioning-exercise-class_jul23.pdf" target="_blank" rel="noopener">Dead bug cueing (PDF)</a>.</li>
-      <li class="ref">[16] NHS Lothian (RHCYP). <a href="https://apps.nhslothian.scot/files/sites/2/RHCYP-Back-Pain-V1.2.pdf" target="_blank" rel="noopener">Dead bug description (PDF)</a>.</li>
-      <li class="ref">[17] Cleveland Clinic. <a href="https://health.clevelandclinic.org/plank-exercise-benefits" target="_blank" rel="noopener">Plank—how to & cues</a>.</li>
-      <li class="ref">[18] AAOS OrthoInfo. <a href="https://orthoinfo.aaos.org/en/recovery/spine-conditioning-program/" target="_blank" rel="noopener">Spine Conditioning (bird‑dog, planks)</a>.</li>
-      <li class="ref">[19] ACE Exercise Library. <a href="https://www.acefitness.org/resources/everyone/exercise-library/332/standing-anti-rotation-press/" target="_blank" rel="noopener">Pallof/anti‑rotation press</a>.</li>
-      <li class="ref">[20] ACE CME Sheet. <a href="https://www.acefitness.org/cmes-resources/pdfs/02-10-CMES-McGillsTorsoEnduracneTest.pdf" target="_blank" rel="noopener">McGill test ratios</a>.</li>
-      <li class="ref">[21] ACE form (alt). <a href="https://contentcdn.eacefitness.com/assets/certification/ace-answers/forms/pt/19_Mcgills_Torso_Muscular_Endurance_Test_Battery_Protocol.pdf" target="_blank" rel="noopener">Protocol PDF</a>.</li>
-      <li class="ref">[22] Systematic uses of McGill protocol. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6930174/" target="_blank" rel="noopener">Core endurance & performance</a>.</li>
-      <li class="ref">[23] ACE Exercise Library. <a href="https://www.acefitness.org/resources/everyone/exercise-library/33/hip-hinge/" target="_blank" rel="noopener">Hip hinge (dowel drill)</a>.</li>
-      <li class="ref">[24] Mayo Clinic. <a href="https://www.mayoclinic.org/healthy-lifestyle/fitness/multimedia/bent-over-row/vid-20084680" target="_blank" rel="noopener">Bent‑over row (video/text)</a>.</li>
-      <li class="ref">[25] ACE Exercise Library. <a href="https://www.acefitness.org/resources/everyone/exercise-library/359/farmer-s-carry/" target="_blank" rel="noopener">Farmer’s carry</a>.</li>
-      <li class="ref">[26] ACE Exercise Library. <a href="https://www.acefitness.org/resources/everyone/exercise-library/358/suitcase-carry/" target="_blank" rel="noopener">Suitcase carry</a>.</li>
-      <li class="ref">[27] ACE blog (progression note). <a href="https://www.acefitness.org/resources/everyone/blog/6072/5-exercises-to-challenge-your-core/" target="_blank" rel="noopener">Loaded carries—advanced goal</a>.</li>
-      <li class="ref">[28] NASM. <a href="https://www.nasm.org/workout-exercise-guidance/how-to-kettlebell-deadlift" target="_blank" rel="noopener">Kettlebell deadlift guide</a>.</li>
-      <li class="ref">[29] ACE (kneeling plank rollout). <a href="https://www.acefitness.org/resources/pros/expert-articles/5123/core-strengthening-stability-ball-workout/" target="_blank" rel="noopener">Ball rollout variant</a>.</li>
-      <li class="ref">[30] ACE article (Captain’s Chair → hanging). <a href="https://www.acefitness.org/resources/pros/expert-articles/5452/6-exercises-for-a-stronger-core/" target="_blank" rel="noopener">Chair & hanging knee raise tips</a>.</li>
-      <li class="ref">[31] APTA/JOSPT 2021 CPG. <a href="https://www.apta.org/patient-care/evidence-based-practice-resources/cpgs/acute-chronic-lbp" target="_blank" rel="noopener">Interventions for acute & chronic LBP</a> and <a href="https://www.jospt.org/doi/10.2519/jospt.2021.0304" target="_blank" rel="noopener">JOSPT paper</a>.</li>
-    </ol>
-    <p class="small muted">Confidence key: <span class="badge b-hi">High</span> mirrors an authoritative source; <span class="badge b-med">Medium</span> aligns with guidelines/common PT practice; <span class="badge b-low">Low</span> is a clearly‑marked estimate for progression or self‑screening.</p>
-  </section>
-
-  <footer>
-    <p>© ARCANet • This page is self‑contained and may be hosted as‑is. Replace the email/links above to personalize. All text here is original; external content is only linked, not embedded.</p>
-  </footer>
 </main>
 
-<script>
-  // Local storage helpers
-  const qs = s=>document.querySelector(s);
-  const qsa = s=>document.querySelectorAll(s);
-
-  // McGill calculator
-  const fe = ()=> {
-    const flex=+qs('#tFlex').value||0, ext=+qs('#tExt').value||1;
-    const sr=+qs('#tSideR').value||0, sl=+qs('#tSideL').value||0;
-    const rFE = (flex/ext).toFixed(2), rRE=(sr/ext).toFixed(2), rLE=(sl/ext).toFixed(2);
-    const rRL = ext>0 && sl>0 && sr>0 ? (sr/sl).toFixed(2) : '—';
-    qs('#ratioFE').textContent = rFE;
-    qs('#ratioRE').textContent = rRE;
-    qs('#ratioLE').textContent = rLE;
-    qs('#ratioRL').textContent = rRL;
-
-    let pass=0, total=3;
-    if (flex/ext < 1.0) pass++;
-    if (sr/ext < 0.75) pass++;
-    if (sl/ext < 0.75) pass++;
-    const bal = (sr && sl) ? Math.abs(sr/sl - 1) : 1;
-    const balanceOK = bal <= 0.05;
-    const pct = Math.min(100, Math.round((pass/total + (balanceOK?0.33:0))*75));
-    qs('#mcgillBar').style.width = pct + '%';
-    const msg = (pass===3 && balanceOK)
-      ? '✅ Ratios pass. If symptoms allow, you’re ready for Phase 3 work.'
-      : 'Keep building short, crisp holds and retest. Aim for all 3 ratios + side balance within ±0.05.';
-    qs('#mcgillMsg').textContent = msg;
-  };
-  qsa('#tFlex,#tExt,#tSideR,#tSideL').forEach(i=> i.addEventListener('input', fe));
-  fe();
-
-  // Pain & load self-check
-  function checkPainLoad(){
-    const pain = +qs('#painNow').value;
-    const persist = qs('#persist2h').value;
-    const bw = +qs('#bw').value || 0;
-    const perHand = +qs('#perHand').value || 0;
-    const ratio = bw>0 ? ((perHand*2)/bw).toFixed(2) : '—';
-    qs('#carryRatio').textContent = ratio;
-
-    let rec = '';
-    if (pain >= 6 || persist==='yes') rec = '🔴 Regress volume/complexity and respect the 2‑hour rule.';
-    else if (pain >= 4) rec = '🟠 Caution: maintain or slightly reduce volume; keep holds shorter, increase sets.';
-    else rec = '🟢 OK to progress conservatively if form is crisp and ratios are in range.';
-    qs('#suggestion').textContent = rec;
-  }
-  qsa('#painNow,#persist2h,#bw,#perHand').forEach(i=> i.addEventListener('input', checkPainLoad));
-  checkPainLoad();
-
-  // Phase tracker
-  const boxes = ['p0','p1','p2','p3','p4'];
-  function loadProgress(){
-    let done = 0;
-    boxes.forEach(id=>{
-      const el = qs('#'+id);
-      const v = localStorage.getItem('phase_'+id)==='1';
-      el.checked = v; if(v) done++;
-      el.addEventListener('change', ()=>{
-        localStorage.setItem('phase_'+id, el.checked?'1':'0');
-        renderProgress();
-      });
-    });
-    renderProgress();
-  }
-  function renderProgress(){
-    let done = boxes.reduce((acc,id)=> acc + (qs('#'+id).checked?1:0), 0);
-    const pct = Math.round((done/boxes.length)*100);
-    qs('#phaseBar').style.width = pct+'%';
-  }
-  loadProgress();
-</script>
+<footer class="wrap">
+  <p>© ARCANet • Built for clarity: short pages, hard gates, linked sources.</p>
+</footer>
+<script src="assets/site.js"></script>
 </body>
 </html>
