@@ -11,7 +11,7 @@
 <a href="#main" class="sr-only">Skip to content</a>
 <header>
   <div class="wrap">
-    <div class="brand"><strong>ARCANet — Tools</strong></div>
+    <div class="brand"><strong>DAVUN Enterprises — Tools</strong></div>
     <nav><a href="index.html">Home</a></nav>
   </div>
 </header>
@@ -25,6 +25,7 @@
         <div><label for="tFlex">Flexion hold (sec)</label><input id="tFlex" type="number" min="0" step="1" value="0" /></div>
         <div><label for="tExt">Extension hold (sec)</label><input id="tExt" type="number" min="0" step="1" value="0" /></div>
         <div><label for="tSideR">Right side-bridge (sec)</label><input id="tSideR" type="number" min="0" step="1" value="0" /></div>
+         <div><label for="perHand">Carry load per hand (lb)</label><input id="perHand" type="number" min="0" step="1" value="45" />
         <div><label for="tSideL">Left side-bridge (sec)</label><input id="tSideL" type="number" min="0" step="1" value="0" /></div>
       </div>
       <div class="kpis" style="margin-top:10px">
@@ -32,6 +33,8 @@
         <div class="kpi"><div class="muted small">Side R:Extension</div><div id="ratioRE" class="mono">—</div><div class="small">Pass if &lt; 0.75</div></div>
         <div class="kpi"><div class="muted small">Side L:Extension</div><div id="ratioLE" class="mono">—</div><div class="small">Pass if &lt; 0.75</div></div>
         <div class="kpi"><div class="muted small">R:L balance</div><div id="ratioRL" class="mono">—</div><div class="small">Within ±0.05</div></div>
+        <div class="kpi"><div class="muted small">Carry ratio (total:BW)</div><div id="carryRatio">0.50</div></div>
+        <div class="kpi"><div class="muted small">Recommendation</div><div id="suggestion">🟢 OK to progress conservatively if form is crisp and ratios are in range.</div></div>
       </div>
       <div class="progress" style="margin-top:10px"><i id="mcgillBar" style="width:0%"></i></div>
       <p id="mcgillMsg" class="small muted" style="margin-top:8px">Enter times to see pass/fail.</p>
@@ -66,7 +69,7 @@
   </section>
 </main>
 
-<footer class="wrap"><p>© ARCANet • Tools are client-side only.</p></footer>
+<footer class="wrap"><p>© DAVUN Enterprises • Tools are client-side only.</p></footer>
 <script src="assets/site.js"></script>
 </body>
 </html>
