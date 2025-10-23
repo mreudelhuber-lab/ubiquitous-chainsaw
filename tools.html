@@ -1,0 +1,72 @@
+<!-- tools.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Tools — Calculators & Progress</title>
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<a href="#main" class="sr-only">Skip to content</a>
+<header>
+  <div class="wrap">
+    <div class="brand"><strong>ARCANet — Tools</strong></div>
+    <nav><a href="index.html">Home</a></nav>
+  </div>
+</header>
+
+<main id="main" class="wrap">
+  <h1>Tools</h1>
+  <section class="grid cols-2">
+    <div class="card">
+      <h3>McGill endurance ratio calculator <span class="badge b-hi">High</span></h3>
+      <div class="grid cols-2">
+        <div><label for="tFlex">Flexion hold (sec)</label><input id="tFlex" type="number" min="0" step="1" value="0" /></div>
+        <div><label for="tExt">Extension hold (sec)</label><input id="tExt" type="number" min="0" step="1" value="0" /></div>
+        <div><label for="tSideR">Right side-bridge (sec)</label><input id="tSideR" type="number" min="0" step="1" value="0" /></div>
+        <div><label for="tSideL">Left side-bridge (sec)</label><input id="tSideL" type="number" min="0" step="1" value="0" /></div>
+      </div>
+      <div class="kpis" style="margin-top:10px">
+        <div class="kpi"><div class="muted small">Flexion:Extension</div><div id="ratioFE" class="mono">—</div><div class="small">Pass if &lt; 1.00</div></div>
+        <div class="kpi"><div class="muted small">Side R:Extension</div><div id="ratioRE" class="mono">—</div><div class="small">Pass if &lt; 0.75</div></div>
+        <div class="kpi"><div class="muted small">Side L:Extension</div><div id="ratioLE" class="mono">—</div><div class="small">Pass if &lt; 0.75</div></div>
+        <div class="kpi"><div class="muted small">R:L balance</div><div id="ratioRL" class="mono">—</div><div class="small">Within ±0.05</div></div>
+      </div>
+      <div class="progress" style="margin-top:10px"><i id="mcgillBar" style="width:0%"></i></div>
+      <p id="mcgillMsg" class="small muted" style="margin-top:8px">Enter times to see pass/fail.</p>
+    </div>
+
+    <div class="card">
+      <h3>Pain & load self-check</h3>
+      <label for="painNow">Pain right now (0–10)</label>
+      <input id="painNow" type="range" min="0" max="10" step="1" value="2" oninput="painOut.textContent=value" />
+      <div>Value: <strong id="painOut">2</strong>/10</div>
+      <label for="persist2h" style="margin-top:8px">Did pain stay ≥3 points above baseline for &gt;2 hours after last session?</label>
+      <select id="persist2h"><option value="no" selected>No</option><option value="yes">Yes</option></select>
+      <label for="bw" style="margin-top:8px">Body weight (lb)</label><input id="bw" type="number" min="0" step="1" value="180" />
+      <label for="perHand">Carry load per hand (lb)</label><input id="perHand" type="number" min="0" step="1" value="45" />
+      <div class="kpis" style="margin-top:10px">
+        <div class="kpi"><div class="muted small">Total carry load ÷ BW</div><div id="carryRatio" class="mono">—</div><div class="small">“Bodyweight split across hands” is an ACE advanced goal—<em>not required to progress</em>.</div></div>
+        <div class="kpi"><div class="muted small">Recommendation</div><div id="suggestion" class="small">—</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card" style="margin-top:14px">
+    <h3>Phase tracker (local only)</h3>
+    <div class="kpis">
+      <div class="kpi"><div class="muted small">Phase 0</div><div><input type="checkbox" id="p0" /> Completed</div></div>
+      <div class="kpi"><div class="muted small">Phase 1</div><div><input type="checkbox" id="p1" /> Completed</div></div>
+      <div class="kpi"><div class="muted small">Phase 2</div><div><input type="checkbox" id="p2" /> Completed</div></div>
+      <div class="kpi"><div class="muted small">Phase 3</div><div><input type="checkbox" id="p3" /> Completed</div></div>
+      <div class="kpi"><div class="muted small">Phase 4</div><div><input type="checkbox" id="p4" /> Completed</div></div>
+    </div>
+    <div class="progress" style="margin-top:8px"><i id="phaseBar" style="width:0%"></i></div>
+  </section>
+</main>
+
+<footer class="wrap"><p>© ARCANet • Tools are client-side only.</p></footer>
+<script src="assets/site.js"></script>
+</body>
+</html>
