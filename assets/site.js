@@ -25,7 +25,7 @@ const qsa = s => document.querySelectorAll(s);
     const pct = Math.min(100, Math.round((pass/3 + (balanceOK?0.33:0))*75));
     bar.style.width = pct + '%';
     msg.textContent = (pass===3 && balanceOK)
-      ? '✅ Ratios pass. If symptoms allow, you’re ready for Phase 3 work.'
+      ? '✅ Ratios pass. If symptoms allow, youre ready for Phase 3 work.'
       : 'Keep building short, crisp holds and retest. Aim for all 3 ratios + side balance within ±0.05.';
   }
   [tFlex,tExt,tSideR,tSideL].forEach(i=> i.addEventListener('input', fe)); fe();
@@ -56,18 +56,18 @@ const qsa = s => document.querySelectorAll(s);
   function render(){
     let done=0;
     ids.forEach(id=>{
-      const el=qs('#'+id);
-      const v = localStorage.getItem('phase_'+id)==='1';
-      if(el){
-        el.checked=v; if(v) done++;
-        el.onchange=()=>{
-          localStorage.setItem('phase_'+id, el.checked?'1':'0');
-          render();
-        };
+      const el = qs('#'+id);
+      if(el && el.checked) done++;
+      if(el) el.addEventListener('change', ()=>{
+        localStorage.setItem('phase_'+id, el.checked ? '1' : '0');
+        render();
+      });
+      if(localStorage.getItem('phase_'+id) === '1' && el){
+        el.checked = true;
+        done++;
       }
     });
     bar.style.width = Math.round((done/ids.length)*100)+'%';
   }
   render();
-})();
 })();
