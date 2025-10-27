@@ -1,9 +1,8 @@
 // assets/site.js
-
 const qs  = s => document.querySelector(s);
 const qsa = s => document.querySelectorAll(s);
 
-/* ---------- Active nav link (aria-current="page") ---------- */
+/* Active nav link (aria-current="page") */
 (function() {
   const links = qsa("nav a[href]");
   if (!links.length) return;
@@ -19,7 +18,7 @@ const qsa = s => document.querySelectorAll(s);
   });
 })();
 
-/* ---------- McGill ratios (tools.html) ---------- */
+/* McGill ratios (tools.html) */
 (function(){
   const tFlex = qs('#tFlex'); 
   const tExt  = qs('#tExt');
@@ -61,7 +60,7 @@ const qsa = s => document.querySelectorAll(s);
   render();
 })();
 
-/* ---------- Pain/load check (tools.html) ---------- */
+/* Pain/load check (tools.html) */
 (function(){
   const pain=qs('#painNow'); if(!pain) return;
   const persist=qs('#persist2h'), bw=qs('#bw'), perHand=qs('#perHand');
@@ -85,7 +84,7 @@ const qsa = s => document.querySelectorAll(s);
   check();
 })();
 
-/* ---------- Phase tracker (tools.html) ---------- */
+/* Phase tracker (tools.html) */
 (function(){
   const ids=['p0','p1','p2','p3','p4'];
   const bar = qs('#phaseBar'); 
