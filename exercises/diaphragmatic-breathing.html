@@ -7,7 +7,7 @@
 
 <link rel="preload" as="image" href="../assets/bg-mountain.jpg">
 <link rel="stylesheet" href="../assets/styles.css">
-<meta name="description" content="How to perform diaphragmatic breathing; dosage, completion gate, maintenance, safety, and source links.">
+<meta name="description" content="Interactive diaphragmatic breathing guide with timers, work/rest cues, dosage, gate, and safety notes.">
 </head>
 <body>
 <a href="#main" class="sr-only">Skip to content</a>
@@ -38,10 +38,41 @@
       <li>Exhale through pursed lips; abdomen falls. Keep neck/shoulders quiet.</li>
       <li>Position: supine with knees bent (crook-lying); progress to seated/standing.</li>
     </ul>
-    <p class="small">Illustrated guides: 
-      <a href="https://my.clevelandclinic.org/-/scassets/files/org/canada/ehp/stress-diaphragmatic-breathing" target="_blank" rel="noopener">Cleveland Clinic PDF</a> • 
-      <a href="https://www.clevelandclinicabudhabi.ae/en/health-hub/health-resource/treatments-and-procedures/pursed-lip-breathing-and-diaphragmatic-breathing" target="_blank" rel="noopener">Cleveland Clinic Abu Dhabi</a>
-    </p>
+  </section>
+
+  <!-- Interactive Coach -->
+  <section class="card coach" data-title="Diaphragmatic Breathing"
+           data-work-text="Slow nasal inhale, soft exhale; keep shoulders quiet"
+           data-rest-text="Release abdomen and breathe deeply">
+    <h3>Guided Session</h3>
+    <p class="small muted">Default builds a 5-minute practice. Adjust as needed.</p>
+
+    <form class="coach-form" onsubmit="return false">
+      <div class="field"><label>Sets</label><input type="number" min="1" value="1" data-sets></div>
+      <div class="field"><label>Reps (cycles)</label><input type="number" min="1" value="10" data-reps></div>
+      <div class="field"><label>Work sec</label><input type="number" min="1" value="20" data-work></div>
+      <div class="field"><label>Rest sec</label><input type="number" min="0" value="10" data-rest></div>
+      <div class="field"><label>Set rest</label><input type="number" min="0" value="0" data-setrest></div>
+      <div class="field"><label>Sound</label><input type="checkbox" data-sound></div>
+      <div class="coach-controls" style="grid-column:1/-1">
+        <button class="btn primary" data-start>Start</button>
+        <button class="btn" data-pause>Pause</button>
+        <button class="btn ghost" data-reset>Reset</button>
+      </div>
+    </form>
+
+    <div class="coach-banner">
+      <div class="left">
+        <span class="phase-chip">READY</span>
+        <div>
+          <div class="coach-title">Diaphragmatic Breathing</div>
+          <div class="coach-action">Press Start to begin.</div>
+        </div>
+      </div>
+      <div class="countdown">00:00</div>
+      <div class="coach-progressbar" aria-hidden="true"><i></i></div>
+    </div>
+    <div class="sr-only coach-live" aria-live="assertive"></div>
   </section>
 
   <section class="grid-cards">
@@ -57,13 +88,6 @@
       <ul class="list">
         <li>5 minutes comfortable diaphragmatic breathing without neck/shoulder tension.</li>
         <li>Pain ≤5/10 and returns to baseline ≤2 hours post-session.</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>Maintenance</h3>
-      <ul class="list">
-        <li>Keep 2–3 minutes in warm-ups or on recovery days.</li>
-        <li>Use before endurance tests to normalize breathing.</li>
       </ul>
     </div>
     <div class="card dangerbox">
