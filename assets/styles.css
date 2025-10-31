@@ -13,15 +13,11 @@ body{
   margin:0;
   font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial;
   color:var(--ink);
-
-  /* Global background (image sits next to this CSS file) */
   background:#0f1220 url("bg-mountain.jpg") no-repeat center center fixed;
   background-size:cover;
 }
-/* Readability overlay under all content */
 body::before{
-  content:"";
-  position:fixed; inset:0; z-index:0;
+  content:""; position:fixed; inset:0; z-index:0;
   background: radial-gradient(1200px 800px at 80% -10%,
     rgba(27,32,80,.58) 0%,
     rgba(15,18,32,.80) 50%,
@@ -49,8 +45,7 @@ nav a{padding:10px 12px;display:inline-block;border-radius:8px}
 nav a:hover, nav a:focus-visible{background:#1a1f45;text-decoration:none;outline:none}
 nav a[aria-current="page"]{
   background:linear-gradient(90deg,#3bb2ff33,#30ffa633);
-  border:1px solid #2a2f5a;
-  border-radius:8px;
+  border:1px solid #2a2f5a; border-radius:8px;
 }
 
 /* ---------- Layout ---------- */
@@ -126,4 +121,53 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   body::before, header, nav, .disclaimer, .btn, .tag, .legend, .footer{display:none!important}
   .card{background:#fff;border:0;box-shadow:none;padding:0}
   a{color:#000;text-decoration:none}
+}
+
+/* =========================
+   Coach Timer (work/rest)
+   ========================= */
+.coach {margin-top:16px;}
+.coach .coach-form{
+  display:grid; gap:10px; grid-template-columns:repeat(6,minmax(0,1fr));
+  background:#101437; border:1px solid var(--line); border-radius:12px; padding:12px;
+}
+.coach .coach-form .field{display:flex;flex-direction:column}
+.coach .coach-form label{font-weight:600; font-size:.95rem}
+.coach .coach-form input[type=number]{width:100%;padding:8px;border-radius:8px;border:1px solid #2a2f5a;background:#0e1330;color:var(--ink)}
+.coach .coach-controls{display:flex;gap:10px;flex-wrap:wrap; align-items:center}
+.coach .coach-controls .btn{min-width:90px}
+
+@media (max-width:900px){
+  .coach .coach-form{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
+/* Fixed banner shown while running */
+.coach-banner{
+  position:fixed; left:12px; right:12px; bottom:12px; z-index:20;
+  display:none; align-items:center; justify-content:space-between; gap:14px;
+  padding:14px 16px; border-radius:14px;
+  border:1px solid var(--line);
+  box-shadow:0 10px 30px rgba(0,0,0,.35);
+  background:linear-gradient(180deg,#0f142fF2 0%, #0b0f29F2 100%);
+}
+.coach.running .coach-banner{display:flex}
+.coach-banner .left{display:flex;align-items:center;gap:10px}
+.phase-chip{
+  font-weight:800; font-size:.85rem; letter-spacing:.6px;
+  padding:6px 10px; border-radius:999px; border:1px solid #2a2f5a;
+}
+.phase-work{background:rgba(132,255,181,.14); color:var(--hi); border-color:rgba(132,255,181,.35)}
+.phase-rest{background:rgba(255,209,102,.14); color:var(--med); border-color:rgba(255,209,102,.35)}
+.coach-title{font-weight:700}
+.coach-action{opacity:.95}
+.countdown{
+  font:700 28px/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+.coach-progressbar{
+  flex:1; height:10px; border-radius:999px; overflow:hidden; border:1px solid var(--line);
+  background:#0d1330; margin-left:8px;
+}
+.coach-progressbar > i{
+  display:block; height:100%; width:0%;
+  background:linear-gradient(90deg,#3bb2ff,#30ffa6);
 }
